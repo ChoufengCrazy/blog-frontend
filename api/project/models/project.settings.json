@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "categories": {
+      "via": "projects",
+      "collection": "categorie"
+    }
+  }
+}
